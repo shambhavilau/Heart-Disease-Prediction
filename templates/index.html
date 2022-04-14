@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Heart Disease Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="age" placeholder="Age" required="required" />
+        <input type="text" name="sex" placeholder="Sex (0-M, 1-F)" required="required" />
+		<input type="text" name="cp" placeholder="Chest Pain (1-typical angina, 2-atypical angina,
+        3-non-anginal pain, 4-asymptomatic))" required="required" />
+        <input type="text" name="trestbps" placeholder="Resting Blood Pressure(mmHg)" required="required" />
+        <input type="text" name="chol" placeholder="Cholestrol (mg/dl)" required="required" />
+		<input type="text" name="fbs" placeholder="Fasting Blood Sugar (> 120 mg/dl: 1 else 0 )" required="required" />
+        <input type="text" name="restecg" placeholder="Resting Electro Cardiograph (0 = normal,
+        1 = having ST-T wave abnormality,
+        2 = showing probable or definite left ventricular hypertrophy by Estes' criteria)" required="required" />
+        <input type="text" name="thalach" placeholder="Thalach (Max Heart Rate)" required="required" />
+		<input type="text" name="interview_score" placeholder="Exercise induced Pain(1-Yes, 0-No)" required="required" />
+        <input type="text" name="oldpeak" placeholder="ST depression induced by exercise relative to rest" required="required" />
+        <input type="text" name="slope" placeholder="slope of the peak exercise ST segment (1-upsloping,
+            2-flat, 3-downsloping)" required="required" />
+		<input type="text" name="ca" placeholder="No. of Major Vessels(0-3)" required="required" />
+        <input type="text" name="thal" placeholder="Thalassemia (3-normal,6-fixed defect,7-reversable defect)" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
